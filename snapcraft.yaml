@@ -1,0 +1,22 @@
+name: jenkins-job-builder-git
+version: 3.3.0 
+summary: Jenkins Job Builder 
+description: |
+  Jenkins Job Builder takes simple descriptions of Jenkins jobs in YAML or JSON format and uses them to configure Jenkins. You can keep your job descriptions in human readable text format in a version control system to make changes and auditing easier. It also has a flexible template system, so creating many similarly configured jobs is easy.
+license: Apache-2.0
+confinement: strict 
+base: core18
+
+parts:
+  jenkins-job-builder:
+    plugin: python
+    python-version: python2
+    source: https://opendev.org/jjb/jenkins-job-builder.git
+    source-type: git
+    source-tag: 3.3.0
+    requirements:
+      - requirements.txt
+
+apps:
+  jenkins-jobs:
+    command: bin/jenkins-jobs
